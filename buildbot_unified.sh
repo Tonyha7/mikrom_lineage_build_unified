@@ -112,6 +112,7 @@ build_device() {
 }
 
 build_treble() {
+    cp -rf ./lineage_build_unified/aosp12/* ./
     case "${1}" in
         ("A64VN") TARGET=a64_bvN; SECURE=true;;
         ("A64VS") TARGET=a64_bvS; SECURE=false;;
