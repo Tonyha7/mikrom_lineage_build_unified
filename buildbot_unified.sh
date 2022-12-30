@@ -57,6 +57,10 @@ prep_build() {
     repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
     echo ""
 
+    echo "Replacing MikRom Files"
+    cp -rf ./lineage_build_unified/aosp12/* ./
+    echo ""
+    
     echo "Setting up build environment"
     source build/envsetup.sh &> /dev/null
     mkdir -p ~/build-output
@@ -112,7 +116,6 @@ build_device() {
 }
 
 build_treble() {
-    cp -rf ./lineage_build_unified/aosp12/* ./
     case "${1}" in
         ("A64VN") TARGET=a64_bvN; SECURE=true;;
         ("A64VS") TARGET=a64_bvS; SECURE=false;;
